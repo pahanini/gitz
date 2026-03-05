@@ -7,6 +7,7 @@ use std::process::Command;
 const HELP: &str = "\
 Gitz extends git with extra commands:
   load    Clone repository into an auto-created domain/path directory
+
 ";
 
 fn vcs_url_to_path(vcs_url: &str) -> Result<String, GitUrlParseError> {
