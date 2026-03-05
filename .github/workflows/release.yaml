@@ -137,7 +137,7 @@ jobs:
 
       - name: Commit and push
         run: |
-          cd homebrew-tap
+          cd homebrew-gitz
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Formula/gitz.rb
