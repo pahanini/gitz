@@ -129,11 +129,13 @@ jobs:
       - name: Update formula
         run: |
           TAG=${{ github.ref_name }}
-          sed -i "s|VERSION_PLACEHOLDER|${TAG}|g"                              homebrew-gitz/Formula/gitz.rb
-          sed -i "s|SHA256_LINUX_AMD64|${{ steps.shas.outputs.linux_amd64 }}|" homebrew-gitz/Formula/gitz.rb
-          sed -i "s|SHA256_LINUX_ARM64|${{ steps.shas.outputs.linux_arm64 }}|" homebrew-gitz/Formula/gitz.rb
-          sed -i "s|SHA256_MACOS_AMD64|${{ steps.shas.outputs.macos_amd64 }}|" homebrew-gitz/Formula/gitz.rb
-          sed -i "s|SHA256_MACOS_ARM64|${{ steps.shas.outputs.macos_arm64 }}|" homebrew-gitz/Formula/gitz.rb
+          sed \
+            -e "s|VERSION_PLACEHOLDER|${TAG}|g" \
+            -e "s|SHA256_LINUX_AMD64|${{ steps.shas.outputs.linux_amd64 }}|g" \
+            -e "s|SHA256_LINUX_ARM64|${{ steps.shas.outputs.linux_arm64 }}|g" \
+            -e "s|SHA256_MACOS_AMD64|${{ steps.shas.outputs.macos_amd64 }}|g" \
+            -e "s|SHA256_MACOS_ARM64|${{ steps.shas.outputs.macos_arm64 }}|g" \
+            homebrew-gitz/Formula/gitz.rb.tpl > homebrew-gitz/Formula/gitz.rb
 
       - name: Commit and push
         run: |
