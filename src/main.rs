@@ -6,7 +6,7 @@ use std::process::Command;
 
 const HELP: &str = "\
 Gitz extends git with extra commands:
-  load    Clone repository into an auto-created domain/path directory
+  create  Clone repository into an auto-created domain/path directory
 
 ";
 
@@ -37,7 +37,7 @@ fn main() {
 
     if args.is_empty() || args[0] == "help" {
         print!("{}", HELP);
-    } else if args[0] == "load" {
+    } else if args[0] == "create" {
         let url = args.last().unwrap().clone();
         let path = vcs_url_to_path(&url).unwrap_or_else(|e| {
             eprintln!("invalid vcs url: {e}");

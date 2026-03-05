@@ -23,26 +23,26 @@ If you store your code organized by domain and path, like this:
 
 ## Commands
 
-### `load`
+### `create`
 
 Clones a repository into an automatically created directory based on the repository's domain and path.
 
 ```sh
-gitz load https://github.com/pahanini/gitz
+gitz create https://github.com/pahanini/gitz
 # Clones into ~/Projects/github.com/pahanini/gitz
 
-gitz load git@gitlab.com:myorg/myrepo.git
+gitz create git@gitlab.com:myorg/myrepo.git
 # Clones into ~/Projects/gitlab.com/myorg/myrepo
 
-gitz load https://git.corp.example.com/team/project.git
+gitz create https://git.corp.example.com/team/project.git
 # Clones into ~/Projects/git.corp.example.com/team/project
 ```
 
 ## Configuration
 
-| Environment variable | Default        | Description                        |
-|----------------------|----------------|------------------------------------|
-| `GITZ_HOME`          | `~/Projects`   | Base directory for cloned repositories |
+| Environment variable | Default      | Description                            |
+|----------------------|--------------|----------------------------------------|
+| `GITZ_HOME`          | `~/Projects` | Base directory for cloned repositories |
 
 ## Installation
 
